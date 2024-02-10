@@ -1,6 +1,6 @@
 *Vehicle Combat Simulator:*
 
-VCS is a simple application that allows you to compare the stats of 2 vehicles within foxhole, and simulate the odds of one vehicle winning over the other in a head-on fight.
+VCS is a simple application that allows you to compare the stats of 2 vehicles within the game Foxhole, and simulate the odds of one vehicle winning over the other in a head-on fight.
 the way VCS that is by simulating 1000 fights of the given tanks, head on, at the given range and armor levels, and output the results. 
 note that VCS does not take into account the maximum range of vehicles.
 
