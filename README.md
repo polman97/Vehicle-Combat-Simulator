@@ -7,7 +7,7 @@ note that VCS does not take into account the maximum range of vehicles.
 All stats are taken from the official wiki: https://foxhole.wiki.gg/wiki/Foxhole_Wiki
 to manually edit vehicle stats, or add vehicles of your own, simply edit the vehicle_stats.csv file in the same folder as the .EXE
 
-* Features*
+*Features*
 
 - Displays the stats of the selected vehicles
 - displays the chance each vehicle has to pen the other vehicle (from the front) at the given armor level and range
