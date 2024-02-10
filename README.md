@@ -15,6 +15,8 @@ to manually edit vehicle stats, or add vehicles of your own, simply edit the veh
 - allows you to simulate 1000 head on fights between the 2 tanks in one go, and outputs the results.
 
 
+to run the app simply download the zip releases, unzip it and run the .exe inside
+
 the app should work on all platforms. This is my first time writing a program of any kind, and I have little coding experience, so don't take the results as facts.
 feel free to contact me on discord @viktorpvolman if you have any questions or suggestions.
 
