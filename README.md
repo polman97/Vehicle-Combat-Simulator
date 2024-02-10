@@ -4,7 +4,8 @@ VCS is a simple application that allows you to compare the stats of 2 vehicles w
 the way VCS that is by simulating 1000 fights of the given tanks, head on, at the given range and armor levels, and output the results. 
 note that VCS does not take into account the maximum range of vehicles.
 
-All stats are taken from the official wiki: https://foxhole.wiki.gg/wiki/Foxhole_Wiki
+All stats are taken from the official wiki: https://foxhole.wiki.gg/wiki/Foxhole_Wiki.
+
 to manually edit vehicle stats, or add vehicles of your own, simply edit the vehicle_stats.csv file in the same folder as the .EXE
 
 *Features*
