@@ -1,8 +1,8 @@
-import random
 import pandas as pd
 import TankBattle
 import PySimpleGUI as sg
-from psg_reskinner import animated_reskin, reskin, __version__
+from psg_reskinner import animated_reskin
+
 
 #TODO: Add pushguns and ac's with guns on them to the CSV
 #TODO: enable save settings
@@ -14,7 +14,13 @@ from psg_reskinner import animated_reskin, reskin, __version__
 
 #imports the csv containing tank stats, turns that into a list, vehicle_1 and vehicle_2 are the currently selected tanks.
 #can probably initilalize those somewhere else
-tank_stats_csv = pd.read_csv('functional.csv')
+
+# to build run pyinstaller --onefile --noconsole --icon=Source/Vehicle_Combat_Simulator.ico --name=VCS Source/Main.py  in console
+# remember to move the vehicle_stats.csv and Vehicle_Combat_Simulator to dist folder
+window_name = 'Foxhole Vehicle Combat Simulator v0.1'
+icon = 'Vehicle_Combat_Simulator.ico'
+stats_file = 'vehicle_stats.csv'
+tank_stats_csv = pd.read_csv(stats_file)
 vehicle_1 = tank_stats_csv.to_dict('records')[19]
 vehicle_2 = tank_stats_csv.to_dict('records')[16]
 tank_name_list = tank_stats_csv['name'].tolist()
@@ -73,7 +79,7 @@ layout = [
     [sg.Text(answer, key='Answer')],
           ]
 #actual window
-window = sg.Window('Foxhole Tank Fight Simulator', layout)
+window = sg.Window(title=window_name, layout=layout, icon=icon)
 armor_start_percent1 = 100
 armor_start_percent2 = 100
 
@@ -145,7 +151,7 @@ def update_pen_2():
         currarm_1b = (vehicle_2['armor'] * (values['slider2'] / 100))
         stripped_1a = 100 - ((currarm_1b / vehicle_2['armor']) * 100)
         pch1 = round((TankBattle.pen_calculator(vehicle_2['base penchance'], stripped_1, vehicle_2['max penchance'],
-                                                        vehicle_1['pen multiplier gun 2'], values['range slider'])), 1)
+                                                vehicle_1['pen multiplier gun 2'], values['range slider'])), 1)
         window['penchance1_b'].update(f'Pen chance gun 2:{pch1}%')
     else:
         window['penchance1_b'].update(f'Pen chance gun 2:0')
@@ -179,7 +185,7 @@ def reskin_job(newtheme):
 
 #for some reason reskinning to current theme makes the theme switcher more stable
 reskin_job('DarkBlue')
-print(tank_name_list[0])
+#print(tank_name_list[0])
 #main program loop
 
 

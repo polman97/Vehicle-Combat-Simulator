@@ -3,7 +3,10 @@ import random
 #TODO annotations :)
 #TODO double triple quadruple check math is working.
 def pen_calculator(base_pen_chance, armour_stripped, max_armor_stripped, ammo_bonus, dist):
-    range_bonus = max(0, (30-dist))
+    if ammo_bonus != 2.5:
+        range_bonus = max(0, (30-dist))
+    else:
+        range_bonus = 0
     pen_chance  = min(100,(min(max_armor_stripped,max(base_pen_chance,armour_stripped))*ammo_bonus+range_bonus))
     return pen_chance
 class Vehicle():
@@ -18,8 +21,7 @@ class Vehicle():
         rand = random.randint(0,100)
         penchance = pen_calculator(target.vehicle_stats['base penchance'], target.vehicle_stats['armor stripped'], target.vehicle_stats['max penchance'],self.vehicle_stats['pen multiplier'], dist)
         if rand <= penchance:
-            print(
-                f'{self.vehicle_stats['name']} hit {target.vehicle_stats['name']} at {timer}s. penchance: {penchance}, randit: {rand}')
+            print(f'{self.vehicle_stats['name']} hit {target.vehicle_stats['name']} at {timer}s. penchance: {penchance}, randit: {rand}')
             target.get_hit(self.vehicle_stats['damage'], self.vehicle_stats['damage type'])
 
             # checks for gun 2, shoots again if so (all vehicles with 2 guns have same reload on both guns
@@ -32,11 +34,9 @@ class Vehicle():
                                        dist)
             if rand2 <= penchance2:
                 target.get_hit(self.vehicle_stats['damage gun 2'], self.vehicle_stats['damage type gun 2'])
-                print(
-                    f'{self.vehicle_stats['name']} hit {target.vehicle_stats['name']} at {timer}s. penchance: {penchance}, randit: {rand}')
+                print(f'{self.vehicle_stats['name']} hit {target.vehicle_stats['name']} at {timer}s. penchance: {penchance}, randit: {rand}')
             else:
-                print(
-                    f'{self.vehicle_stats['name']} missed {target.vehicle_stats['name']} at {timer}s. penchance: {penchance2}, randit: {rand2}')
+                print(f'{self.vehicle_stats['name']} missed {target.vehicle_stats['name']} at {timer}s. penchance: {penchance2}, randit: {rand2}')
 
     def get_hit(self, damage, damage_type):
         #idk if there's a prettier way of checking for damage type, this is kinda ugleh, but t works
