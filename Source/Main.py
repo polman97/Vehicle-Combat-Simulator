@@ -15,7 +15,7 @@ from psg_reskinner import animated_reskin
 #imports the csv containing tank stats, turns that into a list, vehicle_1 and vehicle_2 are the currently selected tanks.
 #can probably initilalize those somewhere else
 
-# to build run pyinstaller --onefile --noconsole --icon=Source/Vehicle_Combat_Simulator.ico --name=VCS Source/Main.py  in console
+# to build the exe run pyinstaller --onefile --noconsole --icon=Source/Vehicle_Combat_Simulator.ico --name=VCS Source/Main.py  in console
 # remember to move the vehicle_stats.csv and Vehicle_Combat_Simulator to dist folder
 window_name = 'Foxhole Vehicle Combat Simulator v0.1'
 icon = 'Vehicle_Combat_Simulator.ico'
@@ -31,8 +31,7 @@ lst1 = sg.Listbox(tank_name_list, size=(40, 7), select_mode='single', key='tank 
 lst2 = sg.Listbox(tank_name_list, size=(40, 7), select_mode='single', key='tank 2', enable_events= True)
 answer = 'please select your tanks '
 menu_def = [
-   ['File', ['btn1', 'btn2', 'btn3', 'btn4',]],
-   ['Settings', ['Theme',['Colonial', 'Warden'], 'btn6','btn7', 'btn8'],],
+   ['Settings', ['Theme',['Colonial', 'Warden']]],
 ]
 
 
